@@ -1,0 +1,31 @@
+/* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+
+
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+
+
+  background-image: url('../hero-bg.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}

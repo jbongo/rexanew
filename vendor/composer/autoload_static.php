@@ -109,6 +109,7 @@ class ComposerStaticInit86852f25034f3669ef45b029211660c6
         ),
         'B' => 
         array (
+            'Bestmomo\\LaravelEmailConfirmation\\' => 34,
             'Barryvdh\\Debugbar\\' => 18,
         ),
         'A' => 
@@ -284,6 +285,10 @@ class ComposerStaticInit86852f25034f3669ef45b029211660c6
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Bestmomo\\LaravelEmailConfirmation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src',
+        ),
         'Barryvdh\\Debugbar\\' => 
         array (
             0 => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src',
@@ -336,17 +341,21 @@ class ComposerStaticInit86852f25034f3669ef45b029211660c6
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Feedback' => __DIR__ . '/../..' . '/app/Feedback.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\FeedbackController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeedbackController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Notifications\\ConfirmEmail' => __DIR__ . '/../..' . '/app/Notifications/ConfirmEmail.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -388,6 +397,13 @@ class ComposerStaticInit86852f25034f3669ef45b029211660c6
         'Barryvdh\\Debugbar\\Twig\\Extension\\Stopwatch' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Twig/Extension/Stopwatch.php',
         'Barryvdh\\Debugbar\\Twig\\Node\\StopwatchNode' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Twig/Node/StopwatchNode.php',
         'Barryvdh\\Debugbar\\Twig\\TokenParser\\StopwatchTokenParser' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Twig/TokenParser/StopwatchTokenParser.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Commands\\AuthCommand' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Commands/AuthCommand.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Commands\\NotificationCommand' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Commands/NotificationCommand.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Notifications\\ConfirmEmail' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Notifications/ConfirmEmail.php',
+        'Bestmomo\\LaravelEmailConfirmation\\ServiceProvider' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/ServiceProvider.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Traits\\AuthenticatesUsers' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Traits/AuthenticatesUsers.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Traits\\RegistersUsers' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Traits/RegistersUsers.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Traits\\ResetsPasswords' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Traits/ResetsPasswords.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -3693,6 +3709,7 @@ class ComposerStaticInit86852f25034f3669ef45b029211660c6
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
