@@ -6,7 +6,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::middleware('auth')->group(function(){
 //###### Les utilisateurs #########"
 
 Route::get('/users', 'UsersController@index')->name('users.index');
@@ -43,7 +43,7 @@ Route::post('/addFeedback', 'FeedbackController@store')->name('adddFeed');
 //afficher details d'un feedback
 Route::get('/showFeedback/{feed}', 'FeedbackController@show')->name('showFeed');
 
-
+});
 //************** front ******************
 
 // liste de tous les feedsbacks sur le site
@@ -51,3 +51,8 @@ Route::get('/feedback', 'FeedbackController@feedback')->name('feedback');
 
 //afficher details d'un feedback
 Route::get('/detailFeedback/{feed}','FeedbackController@showfront')->name('showfrontFeed');
+
+// renitialisation du mot de passe
+Route::get('/password-reset', function () {
+    return view('auth.passwords.email');
+})->name('password-reset');

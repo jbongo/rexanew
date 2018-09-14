@@ -88,14 +88,19 @@
                         </div>
                     </div>
                 </li>
-                <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar"> Ajay <i class="ti-angle-down f-s-10"></i></span>
+                <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar"> {{ Auth::user()->nom }} <i class="ti-angle-down f-s-10"></i></span>
                     <div class="drop-down dropdown-profile">
                         
                         <div class="dropdown-content-body">
                             <ul>
                                 <li><a href="#"><i class="ti-user"></i> <span>Profile</span></a></li>
                                 
-                                <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" ><i class="ti-power-off"></i>
+                                 <span>Logout</span></a>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                 @csrf
+                                </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -103,5 +108,3 @@
             </ul>
         </div>
     </div>
-
-

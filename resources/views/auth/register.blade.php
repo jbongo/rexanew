@@ -31,11 +31,11 @@
         <!--<h1><a href="#hero">Regna</a></h1>-->
       </div>
 
-      <nav id="nav-menu-container">
+      <nav>
         <ul class="nav-menu">
           <li class="menu-active"><a href="http://rexafrica.com/#hero">Accueil</a></li>
           <li><a href="http://rexafrica.com/#about">Qui sommes nous ?</a></li>
-          <li><a href="http://rexafrica.com/pages/feedback.php">Feedback</a></li>
+          <li><a href="http://rexafrica.com/feedback">Feedback</a></li>
           <li><a href="http://rexafrica.com#contact">Contact</a></li>
           @guest
                             <li class="nav-item">
@@ -72,7 +72,7 @@
 <div class="unix-login">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 ">
                     <div class="login-content">
                         <div class="login-logo">
 {{--                             <img src="assets/images/logo.png" alt="" />
