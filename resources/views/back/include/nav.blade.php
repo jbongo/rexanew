@@ -43,7 +43,9 @@
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
+                    @if($user->profile_complete == 1)
                    
+                    
                     <li class="active"><a href=""></a></li>
                     <li class="active"><a href="{{route('mesFeeds')}}" >
                         <i class="ti-home"></i>
@@ -56,7 +58,7 @@
                          </a>
                         
                     </li>
-                    <li class="active"><a href="{{route('mesFeeds')}}" >
+                    <li class="active"><a href="{{route('lesFeeds')}}" >
                         <i class="ti-pencil-alt"></i>
                         @lang('Les feedbacks')<span class="badge badge-primary">29</span>
                          </a>
@@ -69,7 +71,7 @@
                         
                     </li>
 
-                   
+                   @endif
                     
                 </ul>
             </div>

@@ -13,12 +13,24 @@ class FeedbackController extends Controller
 
     public function index(){
 
-    	$feedbacks = Feedback::all();
-    	return view('back.feedback.index',compact('feedbacks'));
+        $feedbacks = Feedback::all();
+        $user = User::where('id',Auth()->id())->first();
+
+    	return view('back.feedback.index',compact('feedbacks','user'));
+    }
+
+    public function indexAllFeedback(){
+
+        $feedbacks = Feedback::all();
+        $user = User::where('id',Auth()->id())->first();
+
+    	return view('back.feedback.indexAll',compact('feedbacks','user'));
     }
 
     public function create(){
-    	return view('back.feedback.add');
+        $user = User::where('id',Auth()->id())->first();
+
+    	return view('back.feedback.add',compact('user'));
     }
 
     public function store(Request $request){
@@ -30,7 +42,7 @@ class FeedbackController extends Controller
     		"titre" => $request["titre"],
     		"description" => $request["feedback"],
     		"pays" => $request["pays"],
-            "statut" => 0,
+            "statut" => 1,
             "user_id" => 1
     	]);
 
@@ -47,7 +59,9 @@ class FeedbackController extends Controller
 
     public function edit(Feedback $feed){
         $feedback = $feed;
-        return view('back.feedback.edit',compact('feedback'));
+        $user = User::where('id',Auth()->id())->first();
+
+        return view('back.feedback.edit',compact('feedback','user'));
     }
 
     public function update(Feedback $feed, Request $request){
@@ -65,14 +79,17 @@ class FeedbackController extends Controller
     public function show(Feedback $feed){
 
         $feedback = $feed;
-        return view('back.feedback.detail',compact('feedback') );
+        $user = User::where('id',Auth()->id())->first();
+
+        return view('back.feedback.detail',compact('feedback','user') );
     }
 
     // Front
 
     public function feedback(){
 
-    	$feedbacks = Feedback::where('statut',1)->get();
+        $feedbacks = Feedback::where('statut',1)->get();
+
         return view('front.feedbacks',compact('feedbacks'));
     }
 

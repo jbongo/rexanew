@@ -1,6 +1,20 @@
 @extends('back.layout.app')
 
 @section('content')
+@if (session('ok'))
+       
+<div class="alert alert-success alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <a href="#" class="alert-link"><strong> {{ session('ok') }}</strong></a> 
+</div>
+@endif 
+
+@if($user->profile_complete == 0)
+@include('back.users.complete_info');
+
+@else
+
+
 <div class="row">
         	<div class="col-lg-6 col-md-6">
                  <div class="card alert">
@@ -116,4 +130,6 @@ $(function () {
     });
  });  
 </script>
+
 @endsection
+@endif
