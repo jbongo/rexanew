@@ -89,7 +89,7 @@
     <div class="hero-container">
       <h1>Bienvenue sur Rexafrica</h1>
       <h2>Venez partagez votre retour d'expérience</h2>
-      <a href="pages/feedback.php" class="btn-get-started">Voir tous les retours d'expérience</a>
+      <a href="{{route('feedback')}}" class="btn-get-started">Voir tous les retours d'expérience</a>
     </div>
   </section><!-- #hero -->
 

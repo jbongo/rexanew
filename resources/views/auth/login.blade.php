@@ -43,7 +43,8 @@
         <!--<h1><a href="#hero">Regna</a></h1>-->
       </div>
 
-      <nav id="nav-menu-container">
+      <!-- <nav id="nav-menu-container"> -->
+      <nav >
         <ul class="nav-menu">
           <li class="menu-active"><a href="http://rexafrica.com/#hero">Accueil</a></li>
           <li><a href="http://rexafrica.com/#about">Qui sommes nous ?</a></li>
@@ -84,7 +85,7 @@
 <div class="unix-login">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 ">
                     <div class="login-content">
                         <div class="login-logo">
 {{--                             <img src="assets/images/logo.png" alt="" />
@@ -144,7 +145,7 @@
                                     </label>
 
                                     <label class="pull-right">
-                                        <a href="#">Mot de passe oublié ?</a>
+                                        <a href="{{route('password-reset')}}">Mot de passe oublié ?</a>
                                     </label>
 
                                 </div>

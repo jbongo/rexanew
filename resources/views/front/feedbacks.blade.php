@@ -108,10 +108,10 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h3 class="jumbotron-heading">Vous aussi partagez votre retour d'expérience</h3>
+          <h3 class="jumbotron-heading">@lang('Vous aussi partagez votre retour d\'expérience')</h3>
           <p class="lead text-muted"></p>
           <p>
-            <a href="../rexadmin/login.php" class="btn btn-secondary">Ajouter votre feeback</a>
+            <a href="{{route('addFeed')}}" class="btn btn-secondary">@lang('Ajouter votre feedback')</a>
           </p>
           <hr>
           <p>
@@ -436,7 +436,7 @@
                                         <h4>{{$feedback->titre}}</h4>
                                     </div>
                                     <div class="product_des">
-                                        <p>{{$feedback->description}}</p>
+                                        <p>{{ str_limit($feedback->description,50,'...') }} </p>
                                     </div>
                                     <div class="prdt_add_to_cart">
                                         <a href="{{ route('showfrontFeed',$feedback->id) }}" class="btn btn-primary btn-rounded  m-l-5">@lang('Lire la suite')</a>

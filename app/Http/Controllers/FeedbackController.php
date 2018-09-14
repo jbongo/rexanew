@@ -43,7 +43,7 @@ class FeedbackController extends Controller
     		"description" => $request["feedback"],
     		"pays" => $request["pays"],
             "statut" => 1,
-            "user_id" => 1
+            "user_id" => auth()->id()
     	]);
 
     	return back()->with('ok',__("Feedback enregistré"));
