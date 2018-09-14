@@ -244,9 +244,12 @@
           <div class="col-lg-5 col-md-8">
             <div class="form">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
+             
               <!-- <div id="errormessage"></div> -->
-              <form action="#" method="post" role="form" id="contactForm" class="contactForm">
-                <div class="form-group">
+            <form  action="" method="post" role="form" id="contactForm" class="contactForm">
+               
+              @csrf 
+              <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Votre Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validation"></div>
                 </div>
@@ -262,8 +265,9 @@
                   <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                   <div class="validation"></div>
                 </div>
-                <div class="text-center"><button type="submit">Envoyer </button></div>
+                <div class="text-center"><button type="submit">@lang('Envoyer') </button></div>
               </form>
+
             </div>
           </div>
 
@@ -322,11 +326,6 @@
   <script src="{{asset('index/js/main.js')}}"></script>
 
   <script type="text/javascript">
-    $('#contactform').submit(function(e){
-
-      e.preventDefault();
-
-    });
 
   </script>
 

@@ -21,7 +21,7 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 
-                              <li>
+                              {{-- <li>
                                     <a href="#">
                                         <img class="pull-left m-r-10 avatar-img" src="{{asset('css/back/images/avatar/3.jpg')}}" alt="" />
                                         <div class="notification-content">
@@ -30,18 +30,9 @@
                                             <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
                                         </div>
                                     </a>
-                                </li>
+                                </li> --}}
 
-                                <li>
-                                    <a href="#">
-                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                        <div class="notification-content">
-                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                            <div class="notification-heading">Mr. Ajay</div>
-                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                        </div>
-                                    </a>
-                                </li>
+                                
                                 <li class="text-center">
                                     <a href="#" class="more-link">See All</a>
                                 </li>
@@ -60,7 +51,7 @@
                                 
 
 
-                                <li>
+                                {{-- <li>
                                     <a href="#">
                                         <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
                                         <div class="notification-content">
@@ -69,18 +60,9 @@
                                             <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
                                         </div>
                                     </a>
-                                </li>
+                                </li> --}}
 
-                                <li>
-                                    <a href="#">
-                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                        <div class="notification-content">
-                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                            <div class="notification-heading">Mr. Ajay</div>
-                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                        </div>
-                                    </a>
-                                </li>
+                               
                                 <li class="text-center">
                                     <a href="#" class="more-link">See All</a>
                                 </li>
@@ -93,7 +75,7 @@
                         
                         <div class="dropdown-content-body">
                             <ul>
-                                <li><a href="#"><i class="ti-user"></i> <span>Profile</span></a></li>
+                            <li><a href="{{route('profil')}}"><i class="ti-user"></i> <span>@lang('Profil')</span></a></li>
                                 
                                 <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" ><i class="ti-power-off"></i>
                                  <span>Logout</span></a>

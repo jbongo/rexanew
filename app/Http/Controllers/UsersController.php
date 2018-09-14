@@ -27,7 +27,8 @@ class UsersController extends Controller
 
     public function store(Request $request){
 
-    	$request->validate([
+	//	dd($request);
+		$request->validate([
             'civilite' => 'required|string|max:25',
             'nom' => 'required|string|max:25',
             'prenom' => 'required|string|max:55',
@@ -139,5 +140,12 @@ class UsersController extends Controller
 			$user->update();
 		return back()->with('ok',__("Félicitation vos informations sont à jour"));
 
+	}
+
+	public function profil(){
+
+		$user = User::where('id',auth()->id())->firstorfail();
+
+		return view('back.users.profil',compact('user'));
 	}
 }

@@ -58,10 +58,14 @@
                                                                       
                                       
                                         <td>
-                                            <span><a href="{{route('showFeed',$feedback->id)}}" data-toggle="tooltip" title="@lang('Détails de ') {{ $feedback->id }}"><i class="ti-eye color-default"></i></a> </span>
-                                            <span><a href="{{route('editFeed',$feedback->id)}}" data-toggle="tooltip" title="@lang('Modifier ') {{ $feedback->id }}"><i class="ti-pencil-alt color-success"></i></a></span>
-        
-                                        <span><a  href="{{route('delFeed',$feedback->id)}}" class="delete" data-toggle="tooltip" title="@lang('Supprimer ') {{ $feedback->id }}"><i class="btn ti-trash color-danger"></i> </a></span>
+                                            <span><a href="{{route('showFeed',$feedback->id)}}" data-toggle="tooltip" title="@lang('Détails') "><i class="ti-eye color-default"></i></a> </span>
+                                            @if($feedback->statut == 1)
+
+                                            <span><a href="{{route('desactiveFeed',$feedback->id)}}" class="desactiveFeed" data-toggle="tooltip" title="@lang('Désactiver') "><i class="ti-close color-danger"></i></a></span>
+                                            @else
+                                            <span><a href="{{route('activeFeed',$feedback->id)}}" class="activeFeed" data-toggle="tooltip" title="@lang('Activer') "><i class="ti-reload color-success"></i></a></span>
+                                            @endif
+                                        <span><a  href="{{route('delFeed',$feedback->id)}}" class="delete" data-toggle="tooltip" title="@lang('Supprimer ')"><i class="btn ti-trash color-danger"></i> </a></span>
                                         </td>
                                     </tr>
                             @endforeach
@@ -82,6 +86,7 @@
 @section('js-content')
 <script>
 
+// suppression d'un feedback
         $(function() {
             $.ajaxSetup({
                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
@@ -133,6 +138,130 @@
                 swalWithBootstrapButtons(
                 'Annulé',
                 'Le feedback n\'a pas été supprimé :)',
+                'error'
+                )
+            }
+        })
+            })
+        })
+
+
+//  Activer un feedback
+
+$(function() {
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+            })
+            $('[data-toggle="tooltip"]').tooltip()
+            $('a.activeFeed').click(function(e) {
+                let that = $(this)
+                e.preventDefault()
+                const swalWithBootstrapButtons = swal.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false,
+})
+        swalWithBootstrapButtons({
+            title: '@lang('Vraiment activer cet feedback  ?')',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: '@lang('Oui')',
+            cancelButtonText: '@lang('Non')',
+            
+        }).then((result) => {
+            if (result.value) {
+                $('[data-toggle="tooltip"]').tooltip('hide')
+                    $.ajax({                        
+                        url: that.attr('href'),
+                        type: 'GET',
+                        success : function(data){
+                            console.log('Ok :'+data);
+                        },
+                        error : function(data){
+                            console.log('not Ok :'+data['error']);
+                        }
+                    })
+                    .done(function () {
+                            //that.parents('tr').remove()
+                            location.reload();
+                    })
+                swalWithBootstrapButtons(
+                'Activé!',
+                'Le feedback a bien été mis en ligne.',
+                'success'
+                )
+                
+                
+            } else if (
+                // Read more about handling dismissals
+                result.dismiss === swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons(
+                'Annulé',
+                'Le feedback n\'a pas été mis en ligne :)',
+                'error'
+                )
+            }
+        })
+            })
+        })
+
+
+        //  Désactiver un feedback
+
+$(function() {
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+            })
+            $('[data-toggle="tooltip"]').tooltip()
+            $('a.desactiveFeed').click(function(e) {
+                let that = $(this)
+                e.preventDefault()
+                const swalWithBootstrapButtons = swal.mixin({
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false,
+})
+        swalWithBootstrapButtons({
+            title: '@lang('Vraiment désactiver cet feedback  ?')',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: '@lang('Oui')',
+            cancelButtonText: '@lang('Non')',
+            
+        }).then((result) => {
+            if (result.value) {
+                $('[data-toggle="tooltip"]').tooltip('hide')
+                    $.ajax({                        
+                        url: that.attr('href'),
+                        type: 'GET',
+                        success : function(data){
+                            console.log('Ok :'+data);
+                        },
+                        error : function(data){
+                            console.log('not Ok :'+data['error']);
+                        }
+                    })
+                    .done(function () {
+                            //that.parents('tr').remove()
+                            location.reload();
+                    })
+                swalWithBootstrapButtons(
+                'Désactivé!',
+                'Le feedback a bien été désactivé.',
+                'success'
+                )
+                
+                
+            } else if (
+                // Read more about handling dismissals
+                result.dismiss === swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons(
+                'Annulé',
+                'Le feedback n\'a pas été désactivé :)',
                 'error'
                 )
             }

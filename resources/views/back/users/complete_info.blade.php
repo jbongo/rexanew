@@ -26,6 +26,7 @@
                   <!-- fieldsets -->
                   @csrf
                   <fieldset>
+                      {{$user}}
                      <div class="row">
                         <div class="col-lg-6">
                            <div class="panel lobipanel-basic panel-default">

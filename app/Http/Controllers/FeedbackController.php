@@ -13,7 +13,7 @@ class FeedbackController extends Controller
 
     public function index(){
 
-        $feedbacks = Feedback::all();
+        $feedbacks = Feedback::where('user_id',Auth()->id())->get();
         $user = User::where('id',Auth()->id())->first();
 
     	return view('back.feedback.index',compact('feedbacks','user'));
@@ -82,6 +82,20 @@ class FeedbackController extends Controller
         $user = User::where('id',Auth()->id())->first();
 
         return view('back.feedback.detail',compact('feedback','user') );
+    }
+
+    public function activeFeed(Feedback $feed){
+
+        $feed->statut = 1;
+        $feed->update();
+        return back()->with('ok',__("Feedback activé"));
+    }
+
+    public function desactiveFeed(Feedback $feed){
+        $feed->statut = 0;
+        $feed->update();
+        return back()->with('ok',__("Feedback désactivé"));
+        
     }
 
     // Front

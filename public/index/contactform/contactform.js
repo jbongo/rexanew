@@ -89,26 +89,18 @@ jQuery(document).ready(function($) {
     //   }
     // });
     // if (ferror) return false;
+
      var str = $(this).serialize();
     $.ajax({
       type: "POST",
-      url: "rexadmin/controller/contact.php",
+      url: '/contactForm',
       data: str,
       success: function(msg) {
-        // alert(msg);
+         alert(msg);
 
         console.log(msg);
 
-        // if (msg == 'OK') {
-        //   $("#sendmessage").addClass("show");
-        //   $("#errormessage").removeClass("show");
-        //   $('.contactForm').find("input, textarea").val("");
-        // } else {
-        //   $("#sendmessage").removeClass("show");
-        //   $("#errormessage").addClass("show");
-        //   $('#errormessage').html(msg);
-        // }
-
+        
         },
       error: function(msg){
 
@@ -116,7 +108,7 @@ jQuery(document).ready(function($) {
       }
 
     });
-    return false;
+   
   });
 
 });
